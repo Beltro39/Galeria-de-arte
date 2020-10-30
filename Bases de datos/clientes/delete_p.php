@@ -3,12 +3,12 @@
 require('../configuraciones/conexion.php');
 
 //query
-$query="delete FROM pasajero where cedula='$_POST[d]'";
+$query="delete FROM casual where cedula='$_POST[d]'";
 $result = mysqli_query($conn, $query) or 
 die(mysqli_error($conn));
  
 if($result){
-    header ("Location: pasajeros.php");
+    header ("Location: clientes.php");
     
      
  }else{

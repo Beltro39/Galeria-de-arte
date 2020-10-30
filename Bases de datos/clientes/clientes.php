@@ -1,3 +1,6 @@
+<?php
+  $mysqli = new mysqli('localhost', 'Krawco', 'lolo852456', 'galeria');
+?>
 <!-- En esta pagina puede encontrar mas informacion acerca de la estructura de un documento html 
     http://www.iuma.ulpgc.es/users/jmiranda/docencia/Tutorial_HTML/estruct.htm-->
 <!DOCTYPE html>
@@ -10,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--titrulo de la pagina-->
-    <title>Clientes</title>
+    <title>Clientes casuales</title>
     <!--CDN de boostraps: Libreria de estilos SCSS y CSS para darle unas buena apariencia a la aplicacion
     para mas informacion buscar documentacion de boostraps en: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -28,7 +31,7 @@
             <a class="nav-link " href="../index.html">inicio</a>
         </li>
         <li class="nav nav-pills">
-            <a class="nav-link active" href="../clientes/clientes.php">Clientes</a>
+            <a class="nav-link active" href="../clientes/clientes.php">Clientes casuales</a>
         </li>
         <li class="nav nav-item">
             <a class="nav-link active" href="../criticos/criticos.php">Críticos</a>
@@ -49,10 +52,10 @@
             <?php
                 if(isset($_GET["cedula"])){
              ?>
-            <div class="col-6 px-2">
+            <div class="col-5 px-0">
                 <div class="card">
                     <div class="card-header">
-                        Editar Pasajero
+                        Editar cliente casual
                     </div>
                     <div class="card-body">
                         <!--formulario para insertar una persona mediante el metodo post-->
@@ -67,7 +70,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ocupación</label>
@@ -76,20 +79,33 @@
                             <div class="form-group">
                                 <label for="">Género</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                    <input class="form-check-input" type="radio" name="genero" id="generoM"
                                         value="M" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <label class="form-check-label" for="generoM">
                                         Masculino
                                     </label>
                                 </div>
                                 <div class="form-check" >
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                    <input class="form-check-input" type="radio" name="genero" id="generoF"
                                         value="F">
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <label class="form-check-label" for="generoF">
                                         Femenino
                                     </label>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label for="">Adulto responsable</label>
+                                <select class="form-control" id="adulto responsable" name="adulto responsable" >
+                                  <option value="0">No aplica: </option>
+                                  <?php  
+                                  $query = $mysqli -> query ("SELECT * FROM casual");
+                                   while ($valores = mysqli_fetch_array($query)) {
+                                     echo '<option value="'.$valores[cedula].'">'.$valores[cedula].'</option>';
+                                   }
+                                  ?>
+                                </select>
+                           </div>
                           
                             
 
@@ -108,10 +124,10 @@
            }
         else{
              ?>
-            <div class="col-6 px-2">
-                <div class="card">
-                    <div class="card-header">
-                        Registrar cliente
+            <div class="col-5 px-0">
+                <div class="card" style="background: #f0f2f5">
+                    <div class="card-header" style="font-sizet: 1.5rem">
+                        Registrar cliente casual
                     </div>
                     <div class="card-body">
                         <!--formulario para insertar una persona mediante el metodo post-->
@@ -126,7 +142,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Ocupación</label>
@@ -135,20 +151,34 @@
                             <div class="form-group">
                                 <label for="">Género</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                        value="M" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <input class="form-check-input" type="radio" name="genero" id="generoM"
+                                        value="Masculino" checked>
+                                    <label class="form-check-label" for="generoM">
                                         Masculino
                                     </label>
                                 </div>
                                 <div class="form-check" >
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                        value="F">
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <input class="form-check-input" type="radio" name="genero" id="generoF"
+                                        value="Femenino">
+                                    <label class="form-check-label" for="generoF">
                                         Femenino
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="">Adulto responsable</label>
+                                <select class="form-control" id="adulto responsable" name="adulto responsable" >
+                                  <option value="0">No aplica: </option>
+                                  <?php  
+                                  $query = $mysqli -> query ("SELECT * FROM casual");
+                                   while ($valores = mysqli_fetch_array($query)) {
+                                     echo '<option value="'.$valores[cedula].'">'.$valores[cedula].'</option>';
+                                   }
+                                  ?>
+                                  
+                                
+                                </select>
+                           </div>
                           
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Guarduar">
@@ -165,23 +195,23 @@
             <?php
         }
         ?>
-            <div class="col-5 px-2">
+            <div class="col-5 px-5">
 
                 <table class="table border-rounded table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Nombre</th>
+                            <th scope="col" class="text-center">Cédula</th>
+                            <th scope="col" class="text-center">Nombre</th>
                             <th scope="col" class="text-center">Fecha nacimiento</th>
-                            <th scope="col">Ocupación</th>
-                            <th scope="col">Género</th>
+                            <th scope="col" class="text-center">Ocupación</th>
+                            <th scope="col" class="text-center">Género</th>
                             <th scope="col" class="text-center">Adulto responsable</th>
                             <th></th>
                         </tr>
                     </thead>
                   
                     <tbody>
-                          <!--
+                          
                         <?php 
                         require('select_p.php');
                         if($result){
@@ -190,10 +220,10 @@
                         <tr>
                             <td><?=$fila['cedula'];?></td>
                             <td><?=$fila['nombre'];?></td>
-                            <td><?=$fila['fecha_nacimiento'];?></td>
+                            <td><?=$fila['fecha nacimiento'];?></td>
                             <td><?=$fila['ocupacion'];?></td>
                             <td><?=$fila['genero'];?></td>
-                            <td><?=$fila['adulto_responsable'];?></td>
+                            <td><?=$fila['adulto responsable'];?></td>
                             <td>
 
                                 <form action="delete_p.php" method="POST">
@@ -208,10 +238,10 @@
                                     
                                     <input type="text" name="cedula" value='<?=$fila['cedula'];?>' hidden>
                                     <input type="text" name="nombre" value='<?=$fila['nombre'];?>' hidden>
-                                    <input type="text" name="fecha_nacimiento" value='<?=$fila['fecha_nacimiento'];?>' hidden>
+                                    <input type="text" name="fecha nacimiento" value='<?=$fila['fecha nacimiento'];?>' hidden>
                                     <input type="text" name="ocupacion" value='<?=$fila['ocupacion'];?> 'hidden>
                                     <input type="text" name="genero" value='<?=$fila['genero'];?>' hidden>
-                                    <input type="text" name="adulto_responsable" value='<?=$fila['adulto_responsable'];?>' hidden>
+                                    <input type="text" name="adulto responsable" value='<?=$fila['adulto responsable'];?>' hidden>
 
                                     <button class="btn btn-primary" title="editar" type="submit"><i
                                             class="far fa-edit"></i></button>
@@ -227,7 +257,7 @@
                             }
                             
                             ?>
-                            -->
+                            
                     </tbody>
                         
                 </table>
