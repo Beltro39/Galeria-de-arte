@@ -1,0 +1,2 @@
+
+Select A.servicio_militar, B.cedula,B.nombre, B.edad, B.peso, B.altura from hombre AS A INNER JOIN pasajero AS B ON A.CEDULA= B.CEDULA
