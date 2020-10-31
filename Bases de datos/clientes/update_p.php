@@ -13,7 +13,7 @@ if($result){
     
      
  }else{
-     echo "Ha ocurrido un error al Eliminar el pasajero";
+     echo "Ha ocurrido un error al editar al cliente";
  }
  
 mysqli_close($conn);

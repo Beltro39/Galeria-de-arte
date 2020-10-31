@@ -28,7 +28,7 @@
             <a class="nav-link " href="../index.html">inicio</a>
         </li>
         <li class="nav nav-item">
-            <a class="nav-link active" href="../clientes/clientes.php">Clientes</a>
+            <a class="nav-link active" href="../clientes/clientes.php">Clientes casuales</a>
         </li>
         <li class="nav nav-pills">
             <a class="nav-link active" href="../criticos/criticos.php">Críticos</a>
@@ -51,39 +51,39 @@
             <div class="col-6 px-2">
                 <div class="card">
                     <div class="card-header">
-                        Registrar crítico
+                        Editar crítico
                     </div>
                     <div class="card-body">
                         <!--formulario para insertar una persona mediante el metodo post-->
                         <form action="update_p.php" class="form-group" method="post">
                             <div class="form-group">
                                 <label for="cedula">Cédula</label>
-                                <input type="text" name="cedula" id="cedula" class="form-control">
+                                <input type="text" name="cedula" id="cedula" class="form-control" value=<?=$_GET["cedula"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control">
+                                <input type="text" name="nombre" id="nombre" class="form-control" value=<?=$_GET["nombre"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" value=<?=$_GET["fecha_nacimiento"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">País</label>
-                                <input type="text" name="pais" id="pais" class="form-control">
+                                <input type="text" name="pais" id="pais" class="form-control" value=<?=$_GET["pais"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Género</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                        value="M" checked>
+                                        value="Masculino">
                                     <label class="form-check-label" for="exampleRadios1">
                                         Masculino
                                     </label>
                                 </div>
                                 <div class="form-check" >
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                        value="F">
+                                        value="Femenino">
                                     <label class="form-check-label" for="exampleRadios2">
                                         Femenino
                                     </label>
@@ -92,7 +92,7 @@
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Guardar">
-                                <a href="criticos.php" class="btn btn-danger">descartar</a>
+                                <a href="criticos.php" class="btn btn-danger">Descartar</a>
                                 
                             </div>
 
@@ -132,14 +132,14 @@
                                 <label for="">Género</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                        value="M" checked>
+                                        value="Masculino" checked>
                                     <label class="form-check-label" for="exampleRadios1">
                                         Masculino
                                     </label>
                                 </div>
                                 <div class="form-check" >
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                        value="F">
+                                        value="Femenino">
                                     <label class="form-check-label" for="exampleRadios2">
                                         Femenino
                                     </label>
@@ -166,12 +166,11 @@
                 <table class="table border-rounded">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Cedula</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Edad</th>
-                            <th scope="col">Peso</th>
-                            <th scope="col">Altura</th>
-                            <th scope="col">Genero</th>
+                            <th scope="col" class="text-center">Cedula</th>
+                            <th scope="col" class="text-center">Nombre</th>
+                            <th scope="col" class="text-center">Fecha nacimiento</th>
+                            <th scope="col" class="text-center">Pais</th>
+                            <th scope="col" class="text-center">Género</th>
 
                             <th></th>
                         </tr>
@@ -185,9 +184,8 @@
                         <tr>
                             <td><?=$fila['cedula'];?></td>
                             <td><?=$fila['nombre'];?></td>
-                            <td><?=$fila['edad'];?></td>
-                            <td><?=$fila['peso'];?></td>
-                            <td><?=$fila['altura'];?></td>
+                            <td><?=$fila['fecha nacimiento'];?></td>
+                            <td><?=$fila['pais'];?></td>
                             <td><?=$fila['genero'];?></td>
                             <td>
 
@@ -199,13 +197,12 @@
                                 </form>
                             </td>
                             <td class="mx-0 pr-2">
-                                <form action="pasajeros.php" method="GET">
+                                <form action="criticos.php" method="GET">
                                     
                                     <input type="text" name="cedula" value='<?=$fila['cedula'];?>' hidden>
                                     <input type="text" name="nombre" value='<?=$fila['nombre'];?>' hidden>
-                                    <input type="text" name="edad" value='<?=$fila['edad'];?>' hidden>
-                                    <input type="text" name="peso" value='<?=$fila['peso'];?> 'hidden>
-                                    <input type="text" name="altura" value='<?=$fila['altura'];?>' hidden>
+                                    <input type="text" name="fecha nacimiento" value='<?=$fila['fecha nacimiento'];?>' hidden>
+                                    <input type="text" name="pais" value='<?=$fila['pais'];?> 'hidden>
                                     <input type="text" name="genero" value='<?=$fila['genero'];?>' hidden>
 
                                     <button class="btn btn-primary" title="editar" type="submit"><i

@@ -4,19 +4,18 @@
 require('../configuraciones/conexion.php');
 
 //query
-$query= "";
-    if($_POST["dueno"]==="0"){
-		$query="INSERT INTO silla(`codigo`, `dueno`,`modelo`, `fecha_fabricacion`, `fecha_compra`) 
-		VALUES('$_POST[codigo]',NULL,'$_POST[modelo]','$_POST[fecha_fabricacion]','$_POST[fecha_compra]')";
-    }else{
-		$query="INSERT INTO silla(`codigo`, `dueno`,`modelo`, `fecha_fabricacion`, `fecha_compra`) 
-        VALUES('$_POST[codigo]','$_POST[dueno]','$_POST[modelo]','$_POST[fecha_fabricacion]','$_POST[fecha_compra]')";
-	}
-
-	$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    if($_POST["persona"]=== "Casual"){
+		$query="INSERT INTO tiquete(`codigo`, `fecha visita galeria`,`cedula`, `tipo persona`) 
+		VALUES('$_POST[codigo]','$_POST[fecha_visita_galeria]','$_POST[cedula_1]','$_POST[persona]')";
+	}else{
+		$query="INSERT INTO tiquete(`codigo`, `fecha visita galeria`,`cedula`, `tipo persona`) 
+	    VALUES('$_POST[codigo]','$_POST[fecha_visita_galeria]','$_POST[cedula_2]','$_POST[persona]')";
+	}	
+    
+    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
  	if($result){
-        header ("Location: sillas.php");
+        header ("Location: tiquetes.php");
         
          
  	}else{

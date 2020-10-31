@@ -28,7 +28,7 @@
             <a class="nav-link " href="../index.html">inicio</a>
         </li>
         <li class="nav ">
-            <a class="nav-link " href="../clientes/clientes.php">Clientes</a>
+            <a class="nav-link " href="../clientes/clientes.php">Clientesn casuales</a>
         </li>
         <li class="nav ">
             <a class="nav-link " href="../criticos/criticos.php">Criticos</a>

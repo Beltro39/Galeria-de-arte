@@ -22,6 +22,7 @@
      para mas informacio : https://fontawesome.com/start-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
 </head>
 
 <body>
@@ -53,7 +54,7 @@
                 if(isset($_GET["cedula"])){
              ?>
             <div class="col-5 px-0">
-                <div class="card">
+                <div class="card" style="background: #f0f2f5">
                     <div class="card-header">
                         Editar cliente casual
                     </div>
@@ -62,25 +63,25 @@
                         <form action="update_p.php" class="form-group" method="post">
                             <div class="form-group">
                                 <label for="cedula">Cédula</label>
-                                <input type="text" name="cedula" id="cedula" class="form-control">
+                                <input type="text" name="cedula" id="cedula" class="form-control" value=<?=$_GET["cedula"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control">
+                                <input type="text" name="nombre" id="nombre" class="form-control" value=<?=$_GET["nombre"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control">
+                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control" value=<?=$_GET["fecha_nacimiento"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Ocupación</label>
-                                <input type="text" name="ocupacion" id="ocupacion" class="form-control">
+                                <input type="text" name="ocupacion" id="ocupacion" class="form-control" value=<?=$_GET["ocupacion"];?>>
                             </div>
                             <div class="form-group">
                                 <label for="">Género</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genero" id="generoM"
-                                        value="M" checked>
+                                        value="M" >
                                     <label class="form-check-label" for="generoM">
                                         Masculino
                                     </label>
@@ -97,7 +98,7 @@
                             <div class="form-group">
                                 <label for="">Adulto responsable</label>
                                 <select class="form-control" id="adulto responsable" name="adulto responsable" >
-                                  <option value="0">No aplica: </option>
+                                  <option value=<?=$_GET["adulto_responsable"];?>> <?php echo $_GET["adulto_responsable"];  ?></option>
                                   <?php  
                                   $query = $mysqli -> query ("SELECT * FROM casual");
                                    while ($valores = mysqli_fetch_array($query)) {
@@ -267,7 +268,6 @@
 
 
     </div>
-
 
 
 
