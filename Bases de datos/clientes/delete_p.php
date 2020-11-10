@@ -6,7 +6,9 @@ require('../configuraciones/conexion.php');
 $query="delete FROM casual where cedula='$_POST[d]'";
 $result = mysqli_query($conn, $query) or 
 die(mysqli_error($conn));
- 
+
+
+
 if($result){
     header ("Location: clientes.php");
     
