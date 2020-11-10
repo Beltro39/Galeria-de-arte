@@ -34,7 +34,7 @@
             <a class="nav-link " href="../criticos/criticos.php">Criticos</a>
         </li>
         <li class="nav">
-            <a class="nav-link" href="../tiquetes/tiquetes.php">Tiquetes</a>
+            <a class="nav-link" href="../recibos/recibos.php">Recibos</a>
         </li>
         <li class="nav-item nav-pills">
             <a class="nav-link active" href="busquedas.php">Busquedas</a>

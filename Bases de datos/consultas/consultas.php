@@ -28,13 +28,16 @@
             <a class="nav-link " href="../index.html">inicio</a>
         </li>
         <li class="nav ">
-            <a class="nav-link " href="../clientes/clientes.php">Clientesn casuales</a>
+            <a class="nav-link " href="../clientes/clientes.php">Clientes casuales</a>
         </li>
         <li class="nav ">
             <a class="nav-link " href="../criticos/criticos.php">Criticos</a>
         </li>
         <li class="nav">
-            <a class="nav-link" href="../tiquetes/tiquetes.php">Tiquetes</a>
+            <a class="nav-link" href="../recibos/recibos.php">Recibos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../obras/obras.php">Obras de arte</a>
         </li>
         <li class="nav">
             <a class="nav-link" href="../busquedas/busquedas.php">Busquedas</a>

@@ -34,7 +34,10 @@
             <a class="nav-link active" href="../criticos/criticos.php">Críticos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../tiquetes/tiquetes.php">Tiquetes</a>
+            <a class="nav-link" href="../recibos/recibos.php">Recibos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../obras/obras.php">Obras de arte</a>
         </li>
         <li class="nav ">
             <a class="nav-link " href="../busquedas/busquedas.php">Busquedas</a>
@@ -106,7 +109,7 @@
         else{
              ?>
             <div class="col-6 px-2">
-                <div class="card">
+                <div class="card" style="background: #f0f2f5">
                     <div class="card-header">
                         Registrar crítico
                     </div>

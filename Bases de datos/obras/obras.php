@@ -31,7 +31,7 @@
         <li class="nav nav-item">
             <a class="nav-link " href="../index.html">inicio</a>
         </li>
-        <li class="nav nav-pills">
+        <li class="nav nav-item">
             <a class="nav-link active" href="../clientes/clientes.php">Clientes casuales</a>
         </li>
         <li class="nav nav-item">
@@ -41,7 +41,7 @@
         <li class="nav-item">
             <a class="nav-link" href="../recibos/recibos.php">Recibos</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-pills">
             <a class="nav-link" href="../obras/obras.php">Obras de arte</a>
         </li>
         <li class="nav ">
@@ -54,62 +54,49 @@
     <div class="container mt-3">
         <div class="row">
             <?php
-                if(isset($_GET["cedula"])){
+                if(isset($_GET["codigo"])){
              ?>
             <div class="col-5 px-0">
                 <div class="card" style="background: #f0f2f5">
                     <div class="card-header">
-                        Editar cliente casual
+                        Editar obra de arte
                     </div>
                     <div class="card-body">
                         <!--formulario para insertar una persona mediante el metodo post-->
                         <form action="update_p.php" class="form-group" method="post">
-                            <div class="form-group">
-                                <label for="cedula">Cédula</label>
-                                <input type="text" name="cedula" id="cedula" class="form-control" value=<?=$_GET["cedula"];?>>
+                        <div class="form-group">
+                                <label for="coodigo">Código</label>
+                                <input type="text" name="codigo" id="codigo" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" value=<?=$_GET["nombre"];?>>
+                                <input type="text" name="nombre" id="nombre" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control" value=<?=$_GET["fecha_nacimiento"];?>>
+                                <label for="">Autor</label>
+                                <input type="text" name="autor" id="autor" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Ocupación</label>
-                                <input type="text" name="ocupacion" id="ocupacion" class="form-control" value=<?=$_GET["ocupacion"];?>>
+                                <label for="">Fecha de publicación</label>
+                                <input type="date" name="fecha publicacion" id="fecha publicacion" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Género</label>
+                                <label for="">Tipo de obra</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="genero" id="generoM"
-                                        value="M" >
-                                    <label class="form-check-label" for="generoM">
-                                        Masculino
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipoP"
+                                        value="Pintura" checked>
+                                    <label class="form-check-label" for="tipoP">
+                                        Pintura
                                     </label>
                                 </div>
                                 <div class="form-check" >
-                                    <input class="form-check-input" type="radio" name="genero" id="generoF"
-                                        value="F">
-                                    <label class="form-check-label" for="generoF">
-                                        Femenino
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipoE"
+                                        value="Escultura">
+                                    <label class="form-check-label" for="tipoE">
+                                        Escultura
                                     </label>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="">Adulto responsable</label>
-                                <select class="form-control" id="adulto responsable" name="adulto responsable" >
-                                  <option value=<?=$_GET["adulto_responsable"];?>> <?php echo $_GET["adulto_responsable"];  ?></option>
-                                  <?php  
-                                  $query = $mysqli -> query ("SELECT * FROM casual");
-                                   while ($valores = mysqli_fetch_array($query)) {
-                                     echo '<option value="'.$valores[cedula].'">'.$valores[cedula].'</option>';
-                                   }
-                                  ?>
-                                </select>
-                           </div>
                           
                             
 
@@ -131,58 +118,44 @@
             <div class="col-5 px-0">
                 <div class="card" style="background: #f0f2f5">
                     <div class="card-header" style="font-sizet: 1.5rem">
-                        Registrar cliente casual
+                        Registrar obra de arte
                     </div>
                     <div class="card-body">
                         <!--formulario para insertar una persona mediante el metodo post-->
                         <form action="insert_p.php" class="form-group" method="post">
                             <div class="form-group">
-                                <label for="cedula">Cédula</label>
-                                <input type="text" name="cedula" id="cedula" class="form-control">
+                                <label for="coodigo">Código</label>
+                                <input type="text" name="codigo" id="codigo" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Nombre</label>
                                 <input type="text" name="nombre" id="nombre" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Fecha de nacimiento</label>
-                                <input type="date" name="fecha nacimiento" id="fecha nacimiento" class="form-control">
+                                <label for="">Autor</label>
+                                <input type="text" name="autor" id="autor" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Ocupación</label>
-                                <input type="text" name="ocupacion" id="ocupacion" class="form-control">
+                                <label for="">Fecha de publicación</label>
+                                <input type="date" name="fecha publicacion" id="fecha publicacion" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Género</label>
+                                <label for="">Tipo de obra</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="genero" id="generoM"
-                                        value="Masculino" checked>
-                                    <label class="form-check-label" for="generoM">
-                                        Masculino
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipoP"
+                                        value="Pintura" checked>
+                                    <label class="form-check-label" for="tipoP">
+                                        Pintura
                                     </label>
                                 </div>
                                 <div class="form-check" >
-                                    <input class="form-check-input" type="radio" name="genero" id="generoF"
-                                        value="Femenino">
-                                    <label class="form-check-label" for="generoF">
-                                        Femenino
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipoE"
+                                        value="Escultura">
+                                    <label class="form-check-label" for="tipoE">
+                                        Escultura
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="">Adulto responsable</label>
-                                <select class="form-control" id="adulto responsable" name="adulto responsable" >
-                                  <option value="0">No aplica: </option>
-                                  <?php  
-                                  $query = $mysqli -> query ("SELECT * FROM casual");
-                                   while ($valores = mysqli_fetch_array($query)) {
-                                     echo '<option value="'.$valores[cedula].'">'.$valores[cedula].'</option>';
-                                   }
-                                  ?>
-                                  
-                                
-                                </select>
-                           </div>
                           
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Guarduar">
@@ -204,12 +177,11 @@
                 <table class="table border-rounded table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" class="text-center">Cédula</th>
+                            <th scope="col" class="text-center">Código</th>
                             <th scope="col" class="text-center">Nombre</th>
-                            <th scope="col" class="text-center">Fecha nacimiento</th>
-                            <th scope="col" class="text-center">Ocupación</th>
-                            <th scope="col" class="text-center">Género</th>
-                            <th scope="col" class="text-center">Adulto responsable</th>
+                            <th scope="col" class="text-center">Autor</th>
+                            <th scope="col" class="text-center">Fecha publicacion</th>
+                            <th scope="col" class="text-center">Tipo</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -222,30 +194,28 @@
                             foreach ($result as $fila){
                         ?>
                         <tr>
-                            <td><?=$fila['cedula'];?></td>
+                            <td><?=$fila['codigo'];?></td>
                             <td><?=$fila['nombre'];?></td>
-                            <td><?=$fila['fecha nacimiento'];?></td>
-                            <td><?=$fila['ocupacion'];?></td>
-                            <td><?=$fila['genero'];?></td>
-                            <td><?=$fila['adulto responsable'];?></td>
+                            <td><?=$fila['autor'];?></td>
+                            <td><?=$fila['fecha publicacion'];?></td>
+                            <td><?=$fila['tipo'];?></td>
                             <td>
 
                                 <form action="delete_p.php" method="POST">
-                                    <input type="text" value=<?=$fila['cedula'];?> hidden>
-                                    <input type="text" name="d" value=<?=$fila['cedula'];?> hidden>
+                                    <input type="text" value=<?=$fila['codigo'];?> hidden>
+                                    <input type="text" name="d" value=<?=$fila['codigo'];?> hidden>
                                     <button class="btn btn-danger" title="eliminar" type="submit"><i
                                             class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                             <td class="mx-0 pr-2">
-                                <form action="clientes.php" method="GET">
+                                <form action="obras.php" method="GET">
                                     
-                                    <input type="text" name="cedula" value='<?=$fila['cedula'];?>' hidden>
+                                    <input type="text" name="codigo" value='<?=$fila['codigo'];?>' hidden>
                                     <input type="text" name="nombre" value='<?=$fila['nombre'];?>' hidden>
-                                    <input type="text" name="fecha nacimiento" value='<?=$fila['fecha nacimiento'];?>' hidden>
-                                    <input type="text" name="ocupacion" value='<?=$fila['ocupacion'];?> 'hidden>
-                                    <input type="text" name="genero" value='<?=$fila['genero'];?>' hidden>
-                                    <input type="text" name="adulto responsable" value='<?=$fila['adulto responsable'];?>' hidden>
+                                    <input type="text" name="autor" value='<?=$fila['autor'];?> 'hidden>
+                                    <input type="text" name="fecha publicacion" value='<?=$fila['fecha publicacion'];?>' hidden>
+                                    <input type="text" name="tipo" value='<?=$fila['tipo'];?>' hidden>
 
                                     <button class="btn btn-primary" title="editar" type="submit"><i
                                             class="far fa-edit"></i></button>
